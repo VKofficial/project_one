@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career & Edu Advisor</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h1, h2 {
+      margin-bottom: 20px;
+      color: #222;
+    }
+
+    p {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      color: #555;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      border: 2px solid #e0e0e0;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      padding: 35px 25px;
+      width: 280px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    }
+
+    .card h3 {
+      margin: 15px 0;
+      color: #4A90E2;
+    }
+
+    .icon {
+      font-size: 40px;
+      color: #4A90E2;
+    }
+
+    .btn {
+      background: #4A90E2;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+      display: inline-block;
+      margin-top: 15px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #357ABD;
+    }
+
+    .back-btn {
+      margin-top: 20px;
+      background: #888;
+    }
+    .back-btn:hover {
+      background: #666;
+    }
+
+    /* Hide inactive sections */
+    .hidden {
+      display: none;
+    }
+
+    /* FRI circular meter */
+    .circle {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: conic-gradient(#4A90E2 var(--value), #ddd 0deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 30px auto;
+    }
+
+    .circle span {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #4A90E2;
+      background: white;
+      padding: 10px 20px;
+      border-radius: 50%;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Login Page */
+    .login-box {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      max-width: 350px;
+      width: 100%;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    /* Avatar display */
+    #avatarDisplay {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 32px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page 1: Choice -->
+  <section id="choice">
+    <h1>How would you like to begin?</h1>
+    <p>Select an option to start your personalized journey.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>Quick Guidance</h3>
+        <p>Ask me anything about careers & courses instantly.</p>
+        <a href="prompt-box.html" class="btn">Start Quick Guidance</a>
+      </div>
+      <div class="card">
+        <div class="icon">🌟</div>
+        <h3>Career Digital Twin</h3>
+        <p>Build your personalized career roadmap step by step.</p>
+        <button class="btn" onclick="nextPage('class')">Build My Career Twin</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 2: Class Selection -->
+  <section id="class" class="hidden">
+    <h2>📘 Choose Your Class</h2>
+    <div class="cards">
+      <div class="card" onclick="nextPage('avatar')"><h3>Class 10</h3></div>
+      <div class="card" onclick="nextPage('avatar')"><h3>Class 11</h3></div>
+      <div class="card" onclick="nextPage('avatar')"><h3>Class 12</h3></div>
+    </div>
+    <button class="btn back-btn" onclick="goBack('choice')">⬅ Go Back</button>
+  </section>
+
+  <!-- Page 3: Choose Avatar -->
+  <section id="avatar" class="hidden">
+    <h2>👤 Choose Your Avatar</h2>
+    <p>This avatar will appear on your journey to remind you of your chosen path.</p>
+    <div class="cards">
+      <div class="card" onclick="setAvatar('👦 Mikey')"><h3>👦 Mikey</h3></div>
+      <div class="card" onclick="setAvatar('👧 Tiara')"><h3>👧 Tiara</h3></div>
+      <div class="card" onclick="setAvatar('🎨 Custom')"><h3>🎨 Create Your Own</h3></div>
+    </div>
+    <button class="btn back-btn" onclick="goBack('class')">⬅ Go Back</button>
+  </section>
+
+  <!-- Page 4: Interests -->
+  <section id="interest" class="hidden">
+    <div id="avatarDisplay"></div>
+    <h2>🎯 Select Your Area of Interest</h2>
+    <p>Please specify your interests in brief so we can calculate your FRI better.</p>
+    <input type="text" placeholder="Type your interest..." 
+           style="padding:12px; border-radius:8px; border:1px solid #ccc; width:70%; max-width:400px; margin-bottom:25px;">
+    <div class="cards">
+      <div class="card" onclick="nextPage('fri')"><h3>Science & Research</h3></div>
+      <div class="card" onclick="nextPage('fri')"><h3>Commerce & Finance</h3></div>
+      <div class="card" onclick="nextPage('fri')"><h3>Arts & Humanities</h3></div>
+      <div class="card" onclick="nextPage('fri')"><h3>Engineering & Tech</h3></div>
+      <div class="card" onclick="nextPage('fri')"><h3>Design & Creativity</h3></div>
+    </div>
+    <button class="btn back-btn" onclick="goBack('avatar')">⬅ Go Back</button>
+  </section>
+
+  <!-- Page 5: FRI -->
+  <section id="fri" class="hidden">
+    <div id="avatarDisplay"></div>
+    <h2>🌐 Future Readiness Index (FRI)</h2>
+    <p>
+      The Future Readiness Index (FRI) helps you understand how prepared you are 
+      for your chosen career path. It considers skills, interests, and opportunities 
+      to guide you towards the best roadmap.
+    </p>
+    <div class="circle" id="circle" style="--value:0deg;">
+      <span id="percentage">0%</span>
+    </div>
+    <button class="btn" onclick="animateFRI()">Calculate My FRI</button>
+    <br>
+    <button class="btn" onclick="nextPage('login')">Take Me To My Roadmap</button>
+    <button class="btn back-btn" onclick="goBack('interest')">⬅ Go Back</button>
+  </section>
+
+  <!-- Page 6: Login -->
+  <section id="login" class="hidden">
+    <div id="avatarDisplay"></div>
+    <h2>🔑 Login to Continue</h2>
+    <div class="login-box">
+      <input type="email" placeholder="Enter your email">
+      <input type="password" placeholder="Enter your password">
+      <button class="btn" style="width:100%;">Login</button>
+    </div>
+    <button class="btn back-btn" onclick="goBack('fri')">⬅ Go Back</button>
+  </section>
+
+  <script>
+    let selectedAvatar = "";
+
+    function nextPage(id) {
+      document.querySelectorAll("section").forEach(sec => sec.classList.add("hidden"));
+      document.getElementById(id).classList.remove("hidden");
+      updateAvatarDisplay();
+    }
+
+    function goBack(id) {
+      nextPage(id);
+    }
+
+    function setAvatar(avatar) {
+      selectedAvatar = avatar;
+      nextPage('interest');
+    }
+
+    function updateAvatarDisplay() {
+      document.querySelectorAll("#avatarDisplay").forEach(el => {
+        el.textContent = selectedAvatar ? selectedAvatar.split(" ")[0] : "";
+      });
+    }
+
+    function animateFRI() {
+      let value = 0;
+      const circle = document.getElementById("circle");
+      const percent = document.getElementById("percentage");
+      const interval = setInterval(() => {
+        if (value >= 78) { // Example: 78% FRI
+          clearInterval(interval);
+        } else {
+          value++;
+          circle.style.setProperty("--value", value * 3.6 + "deg");
+          percent.textContent = value + "%";
+        }
+      }, 30);
+    }
+  </script>
+
+</body>
+</html>
