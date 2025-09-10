@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Psychological Assistant</title>
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box; font-family:"Poppins", sans-serif;}
+    body {background:#FFFDF9; color:#444; line-height:1.6; scroll-behavior:smooth;}
+
+    /* Navbar */
+    .navbar {
+      position:fixed; top:0; width:100%;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:1rem 3rem; background:rgba(255,255,255,0.8);
+      backdrop-filter:blur(10px); border-bottom:1px solid rgba(0,0,0,0.05);
+      z-index:1000;
+    }
+    .logo {font-size:1.5rem; font-weight:bold; color:#FF8BA7;}
+    .navbar nav a {margin:0 1rem; text-decoration:none; color:#444; font-weight:500; transition:color .3s;}
+    .navbar nav a:hover {color:#FF8BA7;}
+
+    /* Hero */
+    .hero {
+      height:100vh; display:flex; align-items:center; justify-content:center; text-align:center;
+      background:linear-gradient(135deg, #FFD6E0, #F8EFD4, #D6F8B8);
+      color:#333; padding:2rem;
+    }
+    .hero-content {max-width:750px;}
+    .hero h1 {font-size:3.2rem; margin-bottom:1rem; color:#444;}
+    .hero p {font-size:1.2rem; margin-bottom:2rem;}
+    .btn {
+      display:inline-block; padding:0.9rem 2rem; border-radius:50px;
+      background:#FF8BA7; color:#fff; text-decoration:none; font-weight:600; transition:.3s;
+    }
+    .btn:hover {background:#444; color:#fff;}
+
+    /* Sections */
+    .section {padding:6rem 2rem; text-align:center;}
+    .section h2 {font-size:2.3rem; margin-bottom:1rem; color:#FF8BA7;}
+    .section p {max-width:800px; margin:0 auto; font-size:1.05rem;}
+
+    /* Features */
+    .grid {margin-top:3rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem;}
+    .card {
+      padding:2rem; border-radius:20px; background:#fff;
+      border:1px solid #f2f2f2; transition:transform .3s, box-shadow .3s;
+    }
+    .card:hover {transform:translateY(-8px); box-shadow:0 12px 24px rgba(0,0,0,0.08);}
+    .card h3 {margin-bottom:.8rem; color:#8AAAE5;}
+
+    /* Chatbot Characters */
+    .chatbot-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2rem; margin-top:3rem;
+    }
+    .character {
+      background:#fff; border-radius:20px; padding:2rem; box-shadow:0 8px 20px rgba(0,0,0,0.05);
+      transition:.3s; text-align:center;
+    }
+    .character:hover {transform:translateY(-6px); box-shadow:0 10px 25px rgba(0,0,0,0.12);}
+    .character img {
+      width:110px; height:110px; border-radius:50%; object-fit:cover; margin-bottom:1rem;
+      border:3px solid #FF8BA7;
+    }
+    .character h4 {color:#FF8BA7; margin-bottom:.5rem;}
+    .character p {font-size:.95rem; color:#555;}
+
+    /* Ideation */
+    .flow {display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; margin-top:3rem;}
+    .step {
+      flex:1 1 220px; background:#fff; border-radius:15px; padding:1.5rem; border:1px solid #eee;
+      box-shadow:0 8px 20px rgba(0,0,0,0.05); position:relative;
+    }
+    .step span {
+      position:absolute; top:-15px; left:-15px; background:#8AAAE5; color:#fff; font-weight:bold;
+      font-size:1.1rem; padding:.6rem 1rem; border-radius:50%; box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Contact */
+    .contact {background:#FFD6E0; color:#444;}
+    .contact .btn {background:#8AAAE5; color:#fff;}
+    .contact .btn:hover {background:#444; color:#fff;}
+
+    /* Footer */
+    footer {background:#444; color:#fff; text-align:center; padding:1.2rem;}
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">PsyAssist</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#chatbots">Chatbots</a>
+      <a href="#ideation">Ideation</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Psychological Assistant</h1>
+      <p>An anime-inspired 24/7 companion that blends AI, psychology, and community support.</p>
+      <a href="#features" class="btn">Explore Features</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section about">
+    <h2>About the Project</h2>
+    <p>
+      PsyAssist is a web + mobile platform that leverages AI personalities to guide, support,
+      and connect users in their mental health journeys. With tests, reports, and anime-inspired
+      companions, it makes psychological support engaging and accessible.
+    </p>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="section features">
+    <h2>Key Features</h2>
+    <div class="grid">
+      <div class="card"><h3>Psychological Tests</h3><p>Interactive tests with text, images, and video-based assessments.</p></div>
+      <div class="card"><h3>Reports & Insights</h3><p>Clear, graphical reports with recommendations and coping strategies.</p></div>
+      <div class="card"><h3>Community Support</h3><p>Groups built around shared AI personalities for peer support.</p></div>
+      <div class="card"><h3>AI + Human Guidance</h3><p>Seamlessly mix AI suggestions with volunteer/counselor help.</p></div>
+    </div>
+  </section>
+
+  <!-- Chatbot Characters -->
+  <section id="chatbots" class="section">
+    <h2>Multi-Personality Chatbots</h2>
+    <p>Meet your anime-inspired companions, each with a unique personality to match your needs.</p>
+    <div class="chatbot-grid">
+      <div class="character">
+        <img src="" alt="Serena">
+        <h4>Serena (The Gentle Healer)</h4>
+        <p>Soft-spoken and kind, always guiding you toward inner calm and peace.</p>
+      </div>
+      <div class="character">
+        <img src="" alt="Kai">
+        <h4>Kai (The Motivator)</h4>
+        <p>Energetic and fearless, cheering you on when life feels overwhelming.</p>
+      </div>
+      <div class="character">
+        <img src="" alt="Aiko">
+        <h4>Aiko (The Listener)</h4>
+        <p>Empathetic and patient, she listens to your struggles without judgment.</p>
+      </div>
+      <div class="character">
+        <img src="" alt="Renji">
+        <h4>Renji (The Analyst)</h4>
+        <p>Smart and logical, helping you see patterns and practical solutions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ideation -->
+  <section id="ideation" class="section ideation">
+    <h2>Ideation Flow</h2>
+    <div class="flow">
+      <div class="step"><span>1</span><p><strong>Know the User:</strong> Gather profile data and preferences.</p></div>
+      <div class="step"><span>2</span><p><strong>Assessment:</strong> Run psychological tests and games.</p></div>
+      <div class="step"><span>3</span><p><strong>Recommendations:</strong> Suggest activities and habits.</p></div>
+      <div class="step"><span>4</span><p><strong>Chatbot Selection:</strong> Assign or let user create a character.</p></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section contact">
+    <h2>Contact Us</h2>
+    <p>We’d love to hear from collaborators and partners. Reach out today!</p>
+    <a href="mailto:hello@psyassist.com" class="btn">Get in Touch</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 PsyAssist. All rights reserved.</p>
+  </footer>
+</body>
+</html>
