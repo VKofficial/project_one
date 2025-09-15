@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Guidance</title>
+    <style>
+        :root {
+            --primary-blue: #3498db;
+            --secondary-blue: #2980b9;
+            --quick-guidance-red: #e74c3c;
+            --career-twin-yellow: #f1c40f;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --card-bg: #ffffff;
+            --button-bg: #3498db;
+            --button-text: #ffffff;
+            --text-color: #333333;
+            --light-text-color: #666666;
+            --border-radius: 12px;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: #f4f7f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .header h1 {
+            color: var(--text-color);
+            margin-bottom: 8px;
+            font-size: 2.2rem;
+            font-weight: 600;
+        }
+
+        .header p {
+            color: var(--light-text-color);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            padding: 32px 24px;
+            text-align: center;
+            width: 100%;
+            max-width: 380px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .card-icon.quick-guidance {
+            color: var(--quick-guidance-red);
+        }
+
+        .card-icon.career-twin {
+            color: var(--career-twin-yellow);
+        }
+
+        .card h2 {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+        }
+
+        .card p {
+            color: var(--light-text-color);
+            font-size: 1rem;
+            line-height: 1.5;
+            flex-grow: 1;
+            margin-bottom: 24px;
+        }
+
+        .card-button {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            width: 100%;
+        }
+
+        .card-button.quick-guidance {
+            background-color: var(--button-bg);
+            color: var(--button-text);
+        }
+
+        .card-button.career-twin {
+            background-color: var(--button-bg);
+            color: var(--button-text);
+        }
+
+        .card-button:hover {
+            background-color: var(--secondary-blue);
+            transform: translateY(2px);
+        }
+
+        @media (max-width: 768px) {
+            .card-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                max-width: 90%;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>How would you like to begin?</h1>
+            <p>Select an option to start your personalized journey.</p>
+        </header>
+        <div class="card-container">
+            <div class="card">
+                <div>
+                    <span class="card-icon quick-guidance">⚡</span>
+                    <h2>Quick Guidance</h2>
+                    <p>Ask me anything about careers & courses instantly.</p>
+                </div>
+                <a href="#" class="card-button quick-guidance">Start Quick Guidance</a>
+            </div>
+            <div class="card">
+                <div>
+                    <span class="card-icon career-twin">☀️</span>
+                    <h2>Career Time Machine</h2>
+                    <p>Build your personalized career roadmap step by step.</p>
+                </div>
+                <a href="#" class="card-button career-twin">Interact With Stella</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
